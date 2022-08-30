@@ -1,0 +1,39 @@
+<div class="login">
+    <form class="custom-form" method="post"[formGroup]="form"  (ngSubmit)="iniciarSesion()">
+      <h1>Iniciar Sesión</h1>
+      
+      <input  formControlName="username" 
+        type="username"
+        [(ngModel)]="usuario"
+        name="usuario"
+        placeholder="Usuario"
+        required="required"
+      />
+      <mat-error *ngIf="Usuario?.errors && Usuario?.touched">
+  
+      <p *ngIf="Usuario?.hasError('required')"class="text-danger">El usuario es requerido.</p>           
+      <p *ngIf="Usuario?.hasError('username')"class="text-danger">El formato debe ser válido.</p>
+      </mat-error>
+      <input type="password" 
+        formControlName="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Contraseña"
+        required="required"
+        matInput [type]="hide ? 'password' : 'text'"
+      />
+      <mat-error *ngIf="Password?.errors && Password?.touched">
+  
+        <p *ngIf="Password?.hasError('required')"class="text-danger">El password es requerido.</p>           
+        </mat-error>
+      <button class="A" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button> 
+      <br>
+    
+      <button type="submit" (click)="iniciarSesion()">Log in</button>
+      <br>
+      <button type="submit" (click)="volverHome()">Volver</button>
+  
+    </form>
+  </div>
