@@ -1,6 +1,6 @@
 export interface Iuser {
-    idUser?:number;
-    usuario:string;
+    iduser?:number;
+    username:string;
     password:string;
     token:string;
 

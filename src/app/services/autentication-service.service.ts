@@ -14,7 +14,7 @@ export class  AutenticationService {
 
    url:string ="localhost:8080/api/login";
   user:Iuser={
-    usuario: '',
+    username: '',
     password: '',
     token:""
   }
@@ -37,7 +37,7 @@ logState(): void {
   this.loggedService.LogState();
 }
 iniciarSesion(username: string, password: string) {
-  this.user.usuario = username;
+  this.user.username = username;
   this.user.password = password;
   console.log("llega aca?")
     return this.api.post<any>(this.url, this.user)

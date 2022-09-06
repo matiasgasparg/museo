@@ -8,15 +8,15 @@ import { Iuser } from '../interfaces/iuser';
 })
 export class UserServiceService {
 
-  url2: string = "localhost:8080/api/login";
+  url2: string = "http://localhost:8080/api/login";
 
-  user: Iuser = { usuario: "", password: "", token: "" };
+  user: Iuser = { username: "", password: "", token: "" };
 
   constructor(private api: HttpClient) {}
-  login(usuario: string, password: string): Observable<any> {  
-    this.user.usuario = usuario;
+  login(username: string, password: string): Observable<any> {  
+    this.user.username = username;
     this.user.password = password;
-    return this.api.post(`localhost:8080/login`, this.user);
+    return this.api.post(`http://localhost:8080/api/login`, this.user);
     
 	}
 }
